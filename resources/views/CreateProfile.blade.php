@@ -325,6 +325,20 @@
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Profile Type</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="ProfileType" name="ProfileType">
+                                                                      <option value="" selected></option>
+                                                                      <option value="Captive">Captive</option>
+                                                                      <option value="Direct Business">Direct Business</option>
+                                                                      <option value="Inward Business">Inward Business</option>
+                                                                      <option value="Outward Business">Outward Business</option>
+                                                                      <option value="Intermediaries">Intermediaries</option>
+                                                                      <option value="Others">Others</option>
+                                                                  </select>
+                                                              </div>
+                                                          </div>
+                                                          <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">User Owner</p>
                                                               <div class="col-sm-3">
                                                                   <input class="form-control" id="TxtOwnerID" type="text" name="UserOwner" value="ACA_MO_1">
@@ -358,6 +372,7 @@
                                                                   @endforeach
                                                                   </select>
                                                               </div>
+                                                            </div>
                                                               <div class="col-sm-3">
                                                                   <input class="form-control" id="TxtCity" name="City" type="text">
                                                               </div>
@@ -428,6 +443,47 @@
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Company Type</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="CompanyType" name="CompanyType">
+                                                                      <option value="" selected></option>
+                                                                      <option value="BUMN">BUMN</option>
+                                                                      <option value="BUMD">BUMD</option>
+                                                                      <option value="Captive">Captive</option>
+                                                                      <option value="Direct business">Direct business</option>
+                                                                      <option value="Government">Government</option>
+                                                                      <option value="J.Venture">J.Venture</option>
+                                                                      <option value="Joint Venture">Joint Venture</option>
+                                                                      <option value="Overseas">Overseas</option>
+                                                                      <option value="Private">Private</option>
+                                                                      <option value="swasta">Swasta</option>
+                                                                  </select>
+                                                              </div>
+                                                          </div>
+                                                          <!-- <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Company Group</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="CompanyGroup" name="CompanyGroup">
+                                                                      <option value="" selected></option>
+                                                                  @foreach ($Country['Data'] as $dataCountry)
+                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
+                                                                  @endforeach
+                                                                  </select>
+                                                              </div>
+                                                            </div> -->
+                                                            <!-- <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Sub Company Group</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="SubComGroup" name="SubComGroup">
+                                                                      <option value="" selected></option>
+                                                                  @foreach ($Country['Data'] as $dataCountry)
+                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
+                                                                  @endforeach
+                                                                  </select>
+                                                              </div>
+                                                            </div> -->
+
+                                                          <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Religion</p>
                                                               <div class="col-sm-3">
                                                                   <select class="form-control" id="religion" name="Religion">
@@ -468,7 +524,7 @@
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
-                                                              <p class="col-sm-3 col-form-label">Marital Status</p>
+                                                              <p class="col-sm-3 col-form-label">Martial Status</p>
                                                               <div class="col-sm-3">
                                                                   <select class="form-control" id="LstMarital" name="martial">
                                                                       <option value="" selected></option>
@@ -671,7 +727,7 @@ function GetFormattedDate(datestring) {
     $('.swalDefaultSuccess').click(function() {
       Toast.fire({
         icon: 'success',
-        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+        title: 'Data berhasil Tersimpan.'
       })
     });
     $('.swalDefaultInfo').click(function() {
@@ -692,14 +748,9 @@ function GetFormattedDate(datestring) {
         title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
       })
     });
-    $('.swalDefaultQuestion').click(function() {
-      Toast.fire({
-        icon: 'question',
-        title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
-      })
-    });
+   
     $('.toastrDefaultSuccess').click(function() {
-      toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+      toastr.success('Data berhasil Tersimpan')
     });
   });
 </script>
