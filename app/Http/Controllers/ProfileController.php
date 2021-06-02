@@ -93,10 +93,10 @@ class ProfileController extends Controller
             'Correspondence_phone' => $request->input('CoPhone'),
             'Correspondence_email' => $request->input('CoEmail'),
             'Corporate' => $request->input('Corporate'),
-            'TaxID' => $request->input('Tax'),
-            'Religion' => $request->input('BirthPlace'),
-            'Income' => $request->input('Occupation'),
-            'Employment' => $request->input('CoAddress'),
+            'TaxID' => $request->input('tax'),
+            'Religion' => $request->input('Religion'),
+            'Income' => $request->input('Income'),
+            'Employment' => $request->input('Employment'),
 
             'martial' => $request->input('martial'),
             'citizenship' => $request->input('Citizen'),
@@ -105,11 +105,6 @@ class ProfileController extends Controller
             'ContactPhone' => $request->input('ConPhone')
         );
 
-        $data = array(
-            'ID' => $id,
-            'OwnerID' => 'ACA_MO_1'
-        );
-        $responsedata = APIMiddleware($data, "SearchProfile");
 
         $response  = APIMiddleware($data, 'SaveProfile'); 
         return view('profile');

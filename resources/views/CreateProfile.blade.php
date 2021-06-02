@@ -157,9 +157,6 @@
                               <ul class="nav nav-pills">
                               <li class="nav-item"><a id="tabinquiry" class="{{ empty($tabname) || $tabname == 'inquiry' ? 'nav-link active' : 'nav-link' }}" href="#inquiry" data-toggle="tab">Inquiry</a></li>
                                   <li class="nav-item"><a id="tabprofile" class="{{ empty($tabname) || $tabname == 'profile' ? 'nav-link active' : 'nav-link' }}" href="#profile" data-toggle="tab">Profile</a></li>
-                                  <button type="button" class="btn btn-success toastrDefaultSuccess">
-                  Launch Success Toast
-                </button>
                 <button type="button" class="btn btn-success swalDefaultSuccess">
                   Launch Success Toast
                 </button>
@@ -277,8 +274,7 @@
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">ID Date</p>
                                                               <div class="input-group date col-sm-3" id="reservationdate" data-target-input="nearest">
-                                                                  <input type="date" class="form-control datetimepicker-input" data-target="#TxtIDDate" id="TxtIDDate" name="IDDate" required />
-                                                                  
+                                                                  <input type="date" class="form-control datetimepicker-input" data-target="#TxtIDDate"  id="TxtIDDate" name="IDDate" required />  
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
@@ -592,19 +588,77 @@
 
 <script>
 function viewDetail(ID){
-    var basedata = @json($data['Data']);
-    console.log(basedata);
-    const filterarray = basedata.filter(asd => asd.ID == ID);
-    console.log(filterarray);
-    document.getElementById("TxtProfileRefID").value = filterarray[0]['RefID'];
-    document.getElementById("TxtProfileRefDesc").value = filterarray[0]['RefName'];
-    document.getElementById("TxtProfileID").value = filterarray[0]['ID'];
-    document.getElementById("tabinquiry").className = "nav-link";
-    document.getElementById("tabprofile").className = "nav-link active";
-    document.getElementById("inquiry").className = "tab-pane";
-    document.getElementById("profile").className = "active tab-pane";
+  var basedata = @json($data['Data']);
+  console.log(basedata);
+  const filterarray = basedata.filter(asd => asd.ID == ID);
+  console.log(filterarray);
+  document.getElementById("TxtProfileRefID").value = filterarray[0]['RefID'];
+  document.getElementById("TxtProfileRefDesc").value = filterarray[0]['RefName'];
+  document.getElementById("TxtProfileID").value = filterarray[0]['ID'];
+  document.getElementById("TxtFirstName").value = filterarray[0]['FirstName'];
+  document.getElementById("TxtMiddleName").value = filterarray[0]['MidName'];
+  document.getElementById("TxtLastName").value = filterarray[0]['LastName'];
+  document.getElementById("TxtProfileName").value = filterarray[0]['Name'];
+  document.getElementById("LstIDType").value = filterarray[0]['ID_Type'];
+  document.getElementById("ID_Number").value = filterarray[0]['ID_No'];
+  document.getElementById("ID_Name").value = filterarray[0]['ID_Name'];
+  document.getElementById("TxtIDDate").value = GetFormattedDate(filterarray[0]['ID_Date']);
+  document.getElementById("LstSalutation").value = filterarray[0]['Salutation'];
+  document.getElementById("TxtProfileInitial").value = filterarray[0]['Initial'];
+  document.getElementById("TxtTitle").value = filterarray[0]['Title'];
+  document.getElementById("TxtProfileEmail").value = filterarray[0]['Email'];
+  document.getElementById("TxtProfileMobile").value = filterarray[0]['Mobile'];
+  document.getElementById("TxtProfilePhone").value = filterarray[0]['Phone'];
+  document.getElementById("TxtOwnerID").value = filterarray[0]['OwnerID'];
+  document.getElementById("TxtPAddress_1").value = filterarray[0]['Address_1'];
+  document.getElementById("TxtPAddress_2").value = filterarray[0]['Address_2'];
+  document.getElementById("TxtPAddress_3").value = filterarray[0]['Address_3'];
+  document.getElementById("LstCountry").value = filterarray[0]['Country'];
+  document.getElementById("TxtCity").value = filterarray[0]['City'];
+  document.getElementById("TxtProfileZipCode").value = filterarray[0]['ZipCode'];
+  document.getElementById("LstGender").value = filterarray[0]['Gender'];
+  document.getElementById("TxtBirthPlace").value = filterarray[0]['BirthPlace'];
+  document.getElementById("TxtBirthDate").value = GetFormattedDate(filterarray[0]['BirthDate']);
+  document.getElementById("LstOccupation").value = filterarray[0]['Occupation'];
+  document.getElementById("TxtCAddress").value = filterarray[0]['Correspondence_Address'];
+  document.getElementById("TxtCPhone").value = filterarray[0]['Correspondence_Phone'];
+  document.getElementById("TxtCEmail").value = filterarray[0]['Correspondence_Email'];
+  document.getElementById("CbxCorporateF").value = filterarray[0]['Corporatef']; 
+  document.getElementById("TxtTaxID").value = filterarray[0]['TaxID'];
+  document.getElementById("religion").value = filterarray[0]['Religion'];
+  document.getElementById("LstIncome").value = filterarray[0]['Income'];
+  document.getElementById("TxtEmployment").value = filterarray[0]['Employment'];
+  document.getElementById("CbxWNIF").value = filterarray[0]['WNIF'];
+  document.getElementById("LstMarital").value = filterarray[0]['Martial'];
+  document.getElementById("TxtContact").value = filterarray[0]['Contact'];
+  document.getElementById("TxtContactAddress").value = filterarray[0]['ContactAddress']; 
+  document.getElementById("TxtContactPhone").value = filterarray[0]['ContactPhone'];
+  document.getElementById("CbxForceSyncF").value = filterarray[0]['ForceSyncF'];
+  document.getElementById("CbxDumpF").value = filterarray[0]['Dump'];
+  document.getElementById("CbxRestrictedF").value = filterarray[0]['Restricted']; 
+
+  document.getElementById("tabinquiry").className = "nav-link";
+  document.getElementById("tabprofile").className = "nav-link active";
+  document.getElementById("inquiry").className = "tab-pane";
+  document.getElementById("profile").className = "active tab-pane";
+}
+
+function GetFormattedDate(datestring) {
+    var d = new Date(datestring);
+    var month = d.getMonth()+ 1;
+    if (month < 10){
+        month = '0' + month;
+    }
+    var day = d.getDate();
+    if (day < 10){
+        day = '0' + day;
+    }
+    var year = d.getFullYear();
+    return year + "-" + month + "-" + day;
+   
 }
 </script>
+
 <script>
     $(function() {
     var Toast = Swal.mixin({
