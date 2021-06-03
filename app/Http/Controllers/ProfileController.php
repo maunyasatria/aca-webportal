@@ -20,16 +20,11 @@ class ProfileController extends Controller
         );
         $responseCountry = APIMiddleware($data, 'SearchCountry');
 
-        // API Company group
-        // $data = array(
-
-        // );
-        // $responseCGroup = APIMiddleware($data, '');
-
-        // API Sub Company Group
-
-
-        // API Province
+        // API province
+        $data = array(
+            'Province' =>''
+        );
+        $responeProvince = APIMiddleware($data, 'SearchProvince');
 
          //Data
          $data = array (
@@ -38,8 +33,9 @@ class ProfileController extends Controller
         );
         $responseData = APIMiddleware($data, 'SearchProfile');    
         
-
-        return view('CreateProfile', array('Country' => $responseCountry, 'data' => $responseData, 'tabname' => 'inquiry')); 
+// dd($responeProvince);
+        return view('CreateProfile', array('Country' => $responseCountry, 'data' => $responseData, 'Province' => $responeProvince, 'tabname' => 'inquiry')); 
+        
     }
 
     // CRUD 
@@ -80,7 +76,6 @@ class ProfileController extends Controller
             'ID_Name' =>$request->input('ID_Name'),
             'dateID' => $request->input('IDDate'),
             'Salutation' => $request->input('Salutation'),
-
             'Initial' => $request->input('Initial'),
             'Title' => $request->input('Title'),
             'Email' => $request->input('Email'),
@@ -91,7 +86,6 @@ class ProfileController extends Controller
             'Address_1' => $request->input('Address1'),
             'Address_2' => $request->input('Address2'),
             'Address_3' => $request->input('Address3'),
-
             'Country' => $request->input('Country'),
             'City' => $request->input('City'),
             'ZipCode' => $request->input('ZipCode'),
@@ -100,7 +94,6 @@ class ProfileController extends Controller
             'BirthDate' => $request->input('BirthDate'),
             'Occupation' => $request->input('Occupation'),
             'Correspondence_Address' => $request->input('CoAddress'),
-
             'Correspondence_phone' => $request->input('CoPhone'),
             'Correspondence_email' => $request->input('CoEmail'),
             'Corporate' => $request->input('Corporate'),
@@ -108,17 +101,25 @@ class ProfileController extends Controller
             'Religion' => $request->input('Religion'),
             'Income' => $request->input('Income'),
             'Employment' => $request->input('Employment'),
-
             'martial' => $request->input('martial'),
             'citizenship' => $request->input('Citizen'),
             'Contact' => $request->input('Contact'),
             'ContactAddress' => $request->input('ConAddress'),
-            'ContactPhone' => $request->input('ConPhone')
+            'ContactPhone' => $request->input('ConPhone'),
+
+            'Province' => $request->input('Province'),
+            'Correspondence_Attention' => $request->input('Correspondence_Attention'),
+            'Correspondence_Mobile' => $request->input('Correspondence_Mobile'),
+            'SCGroup' => $request->input('SCGroup'),
+            'ContactTitle' => $request->input('ContactTitle'),
+            'PType' => $request->input('PType'),
+            'CompanyType' => $request->input('CompanyType'),
+           
         );
 
 
         $response  = APIMiddleware($data, 'SaveProfile'); 
-        return view('profile');
+        return route('profile');
         
     }
 

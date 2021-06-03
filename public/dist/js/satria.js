@@ -53,21 +53,21 @@ var kata1 = '';
 var kata2 = '';
 var kata3 = '';
 
-wpcomment.onkeyup  = function(){
+FirstName.onkeyup  = function(){
     var kata1 = this.value;
     document.getElementById('hihi').innerHTML='';
     document.getElementById('hihi').innerHTML=kata1;
     $("#akhir").val($("#prevCom").text());
 }
 
-wpcomment1.onkeyup = function(){
+MiddleName.onkeyup = function(){
     var kata2 = this.value;
     document.getElementById('jojo').innerHTML='';
     document.getElementById('jojo').innerHTML=kata1+' '+kata2;
     $("#akhir").val($("#prevCom").text());
 }
 
-wpcomment2.onkeyup = function(){
+LastName.onkeyup = function(){
     var kata3 = this.value;
     document.getElementById('xiix').innerHTML='';
     document.getElementById('xiix').innerHTML=kata1+' '+kata2+' '+kata3;

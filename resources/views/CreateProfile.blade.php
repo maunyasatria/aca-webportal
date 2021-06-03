@@ -157,11 +157,9 @@
                               <ul class="nav nav-pills">
                               <li class="nav-item"><a id="tabinquiry" class="{{ empty($tabname) || $tabname == 'inquiry' ? 'nav-link active' : 'nav-link' }}" href="#inquiry" data-toggle="tab">Inquiry</a></li>
                                   <li class="nav-item"><a id="tabprofile" class="{{ empty($tabname) || $tabname == 'profile' ? 'nav-link active' : 'nav-link' }}" href="#profile" data-toggle="tab">Profile</a></li>
-                <!-- <button type="button" class="btn btn-success swalDefaultSuccess">
-                  Launch Success Toast
-                </button> -->
                               </ul>
-                          </div><!-- /.card-header -->
+                          </div>
+                          <!-- /.card-header -->
                           <div class="card-body">
                               <div class="tab-content">
                                   <div class="{{ empty($tabname) || $tabname == 'inquiry' ? 'active tab-pane' : 'tab-pane' }}" id="inquiry">
@@ -224,25 +222,25 @@
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">First Name</label>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtFirstName" type="text" name='FirstName'required>
+                                                                  <input class="form-control" id="TxtFirstName" type="text" name='FirstName' style="Text-transform:uppercase" required>
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Middle Name</p>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtMiddleName" name="MiddleName" type="text">
+                                                                  <input class="form-control" id="TxtMiddleName" name="MiddleName" style="Text-transform:uppercase" type="text">
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Last Name</p>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtLastName" name="LastName" type="text">
+                                                                  <input class="form-control" id="TxtLastName" name="LastName" style="Text-transform:uppercase" type="text">
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">Full Name</label>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtProfileName" name="Name" type="text">
+                                                                  <input class="form-control" id="TxtProfileName" name="Name" style="Text-transform:uppercase" type="text">
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
@@ -262,13 +260,27 @@
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">ID Number</label>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="ID_Number" name="ID_Number" type="text" required>
+                                                                  <input class="form-control" id="ID_Number" name="ID_Number" type="text" maxlength="16" required>
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">ID Name</label>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="ID_Name" name="ID_Name" type="text" required>
+                                                                  <input class="form-control" id="ID_Name" name="ID_Name" type="text" style="text-transform:uppercase" required>
+                                                              </div>
+                                                          </div>
+                                                          <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Religion</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="religion" name="Religion">
+                                                                      <option value="" selected></option>
+                                                                      <option value="BUDDHA">BUDDHA</option>
+                                                                      <option value="CATHOLIC">CATHOLIC</option>
+                                                                      <option value="CHRISTIAN">CHRISTIAN</option>
+                                                                      <option value="HINDU">HINDU</option>
+                                                                      <option value="MOSLEM">MOSLEM</option>
+                                                                      <option value="OTHERS">OTHERS</option>
+                                                                  </select>
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
@@ -315,27 +327,13 @@
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">Mobile Phone</label>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtProfileMobile" name="MobilePhone" type="number">
+                                                                  <input class="form-control" id="TxtProfileMobile" name="MobilePhone" type="number" maxlength="14">
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Phone</p>
                                                               <div class="col-sm-6">
                                                                   <input class="form-control" id="TxtProfilePhone" name="Phone" type="number">
-                                                              </div>
-                                                          </div>
-                                                          <div class="form-group row">
-                                                              <p class="col-sm-3 col-form-label">Profile Type</p>
-                                                              <div class="col-sm-3">
-                                                                  <select class="form-control" id="ProfileType" name="ProfileType">
-                                                                      <option value="" selected></option>
-                                                                      <option value="Captive">Captive</option>
-                                                                      <option value="Direct Business">Direct Business</option>
-                                                                      <option value="Inward Business">Inward Business</option>
-                                                                      <option value="Outward Business">Outward Business</option>
-                                                                      <option value="Intermediaries">Intermediaries</option>
-                                                                      <option value="Others">Others</option>
-                                                                  </select>
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
@@ -372,22 +370,21 @@
                                                                   @endforeach
                                                                   </select>
                                                               </div>
-                                                            </div>
                                                               <div class="col-sm-3">
-                                                                  <input class="form-control" id="TxtCity" name="City" type="text">
+                                                                  <input class="form-control" id="TxtCity" name="City" type="text" style="Text-transform:uppercase">
                                                               </div>
                                                           </div>
-                                                          <!-- <div class="form-group row">
+                                                          <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Province</p>
                                                               <div class="col-sm-3">
                                                                   <select class="form-control" id="LstProvince" name="Province">
-                                                                      <option value="" selected></option>
-                                                                  @foreach ($Country['Data'] as $dataCountry)
-                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
+                                                                      <option value=""></option>
+                                                                      @foreach ($Province['Data'] as $dataProvince)
+                                                                       <option value="{{$dataProvince['PROVINCE']}}">{{$dataProvince['DESCRIPTION']}}</option>
                                                                   @endforeach
                                                                   </select>
                                                               </div>
-                                                            </div> -->
+                                                            </div>
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">ZipCode</p>
                                                               <div class="col-sm-3">
@@ -407,7 +404,7 @@
                                                           <div class="form-group row">
                                                               <label class="col-sm-3 col-form-label">Birth Place / Birth Date</label>
                                                               <div class="col-sm-3">
-                                                                  <input class="form-control" id="TxtBirthPlace" name="BirthPlace" type="text">
+                                                                  <input class="form-control" id="TxtBirthPlace" name="BirthPlace" type="text" style="Text-transform:uppercase">
                                                               </div>
                                                               <div class="input-group date col-sm-3" id="reservationdate" data-target-input="nearest">
                                                                   <input type="date" class="form-control datetimepicker-input" data-target="#TxtBirthDate" id="TxtBirthDate" name="BirthDate" required />
@@ -453,61 +450,33 @@
                                                                   <input class="form-control" id="TxtTaxID" type="text" name="tax" disabled>
                                                               </div>
                                                           </div>
-                                                          <div class="form-group row">
-                                                              <p class="col-sm-3 col-form-label">Company Type</p>
-                                                              <div class="col-sm-3">
-                                                                  <select class="form-control" id="CompanyType" name="CompanyType">
-                                                                      <option value="" selected></option>
-                                                                      <option value="BUMN">BUMN</option>
-                                                                      <option value="BUMD">BUMD</option>
-                                                                      <option value="Captive">Captive</option>
-                                                                      <option value="Direct business">Direct business</option>
-                                                                      <option value="Government">Government</option>
-                                                                      <option value="J.Venture">J.Venture</option>
-                                                                      <option value="Joint Venture">Joint Venture</option>
-                                                                      <option value="Overseas">Overseas</option>
-                                                                      <option value="Private">Private</option>
-                                                                      <option value="swasta">Swasta</option>
-                                                                  </select>
-                                                              </div>
-                                                          </div>
                                                           <!-- <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Company Group</p>
                                                               <div class="col-sm-3">
-                                                                  <select class="form-control" id="CompanyGroup" name="CompanyGroup">
+                                                                  <select class="form-control" id="LstComGroup" name="CompanyGroup">
                                                                       <option value="" selected></option>
-                                                                  @foreach ($Country['Data'] as $dataCountry)
-                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
-                                                                  @endforeach
+                                                                 
                                                                   </select>
                                                               </div>
-                                                            </div> -->
-                                                            <!-- <div class="form-group row">
+                                                            </div>
+                                                            <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Sub Company Group</p>
                                                               <div class="col-sm-3">
-                                                                  <select class="form-control" id="SubComGroup" name="SubComGroup">
+                                                                  <select class="form-control" id="LstSubComGroup" name="SubCompanyGroup">
                                                                       <option value="" selected></option>
-                                                                  @foreach ($Country['Data'] as $dataCountry)
-                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
-                                                                  @endforeach
+                                                                 
+                                                                  </select>
+                                                              </div>
+                                                            </div>
+                                                            <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Company Type</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="LstComType" name="CompanyType">
+                                                                      <option value="" selected></option>
+                                                                 
                                                                   </select>
                                                               </div>
                                                             </div> -->
-
-                                                          <div class="form-group row">
-                                                              <p class="col-sm-3 col-form-label">Religion</p>
-                                                              <div class="col-sm-3">
-                                                                  <select class="form-control" id="religion" name="Religion">
-                                                                      <option value="" selected></option>
-                                                                      <option value="BUDDHA">BUDDHA</option>
-                                                                      <option value="CATHOLIC">CATHOLIC</option>
-                                                                      <option value="CHRISTIAN">CHRISTIAN</option>
-                                                                      <option value="HINDU">HINDU</option>
-                                                                      <option value="MOSLEM">MOSLEM</option>
-                                                                      <option value="OTHERS">OTHERS</option>
-                                                                  </select>
-                                                              </div>
-                                                          </div>
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Income</p>
                                                               <div class="col-sm-3">
@@ -549,7 +518,7 @@
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">Contact</p>
                                                               <div class="col-sm-6">
-                                                                  <input class="form-control" id="TxtContact" name="Contact" type="text">
+                                                                  <input class="form-control" id="TxtContact" name="Contact" type="text" style="Text-transform:uppercase">
                                                               </div>
                                                           </div>
                                                           <div class="form-group row">
@@ -582,10 +551,16 @@
                                                                   <input type="checkbox" class="form-check-inputs" id="CbxRestrictedF" name="Restricted">
                                                               </div>
                                                           </div>
-                                                          <div class="row justify-content-center">
+                                                          <div class="form-group row justify-content-center">
+                                                            <div class="col-sm-3">
                                                               <button type="submit" id="clickbtn" class="btn btn-block bg-gradient-primary col-5 swalDefaultSuccess">Save</button>
-                                                          </div>    
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                              <button type="reset" id="clickbtn" class="btn btn-block bg-gradient-danger col-5 swalDefaultDanger">Clear</button>
+                                                            </div>
+                                                          </div>
                                                       </form>
+                                    
                                   </div>
                               </div>
                           </div>
