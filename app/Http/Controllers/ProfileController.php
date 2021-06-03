@@ -20,6 +20,17 @@ class ProfileController extends Controller
         );
         $responseCountry = APIMiddleware($data, 'SearchCountry');
 
+        // API Company group
+        // $data = array(
+
+        // );
+        // $responseCGroup = APIMiddleware($data, '');
+
+        // API Sub Company Group
+
+
+        // API Province
+
          //Data
          $data = array (
             'ID' => '',

@@ -157,9 +157,9 @@
                               <ul class="nav nav-pills">
                               <li class="nav-item"><a id="tabinquiry" class="{{ empty($tabname) || $tabname == 'inquiry' ? 'nav-link active' : 'nav-link' }}" href="#inquiry" data-toggle="tab">Inquiry</a></li>
                                   <li class="nav-item"><a id="tabprofile" class="{{ empty($tabname) || $tabname == 'profile' ? 'nav-link active' : 'nav-link' }}" href="#profile" data-toggle="tab">Profile</a></li>
-                <button type="button" class="btn btn-success swalDefaultSuccess">
+                <!-- <button type="button" class="btn btn-success swalDefaultSuccess">
                   Launch Success Toast
-                </button>
+                </button> -->
                               </ul>
                           </div><!-- /.card-header -->
                           <div class="card-body">
@@ -377,6 +377,17 @@
                                                                   <input class="form-control" id="TxtCity" name="City" type="text">
                                                               </div>
                                                           </div>
+                                                          <!-- <div class="form-group row">
+                                                              <p class="col-sm-3 col-form-label">Province</p>
+                                                              <div class="col-sm-3">
+                                                                  <select class="form-control" id="LstProvince" name="Province">
+                                                                      <option value="" selected></option>
+                                                                  @foreach ($Country['Data'] as $dataCountry)
+                                                                       <option value="{{$dataCountry['Country']}}">{{$dataCountry['Description']}}</option>
+                                                                  @endforeach
+                                                                  </select>
+                                                              </div>
+                                                            </div> -->
                                                           <div class="form-group row">
                                                               <p class="col-sm-3 col-form-label">ZipCode</p>
                                                               <div class="col-sm-3">
